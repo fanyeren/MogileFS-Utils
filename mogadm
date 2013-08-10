@@ -464,7 +464,7 @@ sub cmd_check {
     # step 3: check devices for each host
     print "Checking devices...\n";
     printf "  hostname          ip:port      device  %10s   %10s %10s %7s  %7s   %4s\n", 'size(G)', 'used(G)', 'free(G)', 'use% ', 'ob state', 'I/O%';
-    printf "  -------- -------------------- --------  ----------- ---------- ----------  ------  ---------  ------\n";
+    printf "  -------- -------------------- --------  ----------- ---------- ----------  ------  ---------  -----\n";
     my %total;
     # Initialize to zero so that the total outputs doesn't need to check for undefined.
     map { $total{$_} = 0; } qw(total used avail);
@@ -530,7 +530,7 @@ sub cmd_check {
     # Avoid division by zero
     $pct = 100 - $total{avail}/$total{total}*100 if($total{total} > 0);
 
-    printf "  -------- -------------------- --------  ----------- ---------- ----------  ------  ---------  ------\n";
+    printf "  -------- -------------------- --------  ----------- ---------- ----------  ------  ---------  -----\n";
     printf "             total:%10.3f %10.3f %10.3f %6.2f%%\n", (map { $total{$_} } qw(total used avail)), $pct;
 
     # if we get here, all's well
